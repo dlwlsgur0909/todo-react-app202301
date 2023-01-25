@@ -3,6 +3,7 @@
 import Greeting from './components/Greeting';
 import FoodList from './components/FoodList';
 import Hello from './components/Hello';
+import ItemMain from './components/item/ItemMain';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hello />
       <Greeting />
       <FoodList />
+      <ItemMain />      
     </>
   )
 }
