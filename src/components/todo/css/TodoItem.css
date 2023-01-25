@@ -1,0 +1,59 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.todo-item .check-circle {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    font-size: 24px;
+    border: 1px solid #9da1a7;
+    border-radius: 50%;
+
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+.todo-item .check-circle.active {
+    border-color: #38d9a9;
+    color: #38d9a9;
+}
+
+.todo-item .text {
+    font-size: 21px;
+    color: #495057;
+    flex: 1;
+}
+
+.todo-item .text.finish {
+    color: #919396;
+    text-decoration: line-through;
+}
+
+.todo-item .remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    
+    display: none;
+}
+
+.todo-item:hover .remove {
+    display: block;
+}
+
+.todo-item .remove:hover {
+    color: #f51b4f;
+}

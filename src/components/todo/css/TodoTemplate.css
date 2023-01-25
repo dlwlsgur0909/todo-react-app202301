@@ -7,4 +7,9 @@
     /* 음영 처리 */
     /* x축, y축, 블러크기, 색상 */
     box-shadow: 0 0 8px #aaa;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
 }
