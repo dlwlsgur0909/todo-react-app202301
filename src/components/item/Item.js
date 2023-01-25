@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // props는 부모 컴포넌트가 속성값으로 전달한 데이터 객체
 const Item = ({foodInfo}) => {

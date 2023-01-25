@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Item from './Item';
 
 // 음식 메뉴 리스트 관리 

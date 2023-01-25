@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 // component는 대문자로 시작하는게 관례이다 
 const Hello = () => {

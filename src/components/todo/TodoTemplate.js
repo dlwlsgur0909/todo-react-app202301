@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // css 로딩
 import './css/TodoTemplate.css';
