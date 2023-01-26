@@ -25,7 +25,7 @@ const TodoInput = ({add}) => {
             // ...todo, 
             title: e.target.value
         });
-    }
+    };
 
     // 할 일 입력 후 엔터치면 서버로 POST 요청을 보냄 
     const todoAddHandler = e => {
