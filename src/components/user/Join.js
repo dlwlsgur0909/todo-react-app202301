@@ -10,6 +10,7 @@ const Join = () => {
     const [message, setMessage] = useState({
         username: '',
         password: '',
+        checkPassword: '',
         email: ''
 
     });
@@ -18,6 +19,7 @@ const Join = () => {
     const [validate, setValidate] = useState({
         username: false,
         password: false,
+        checkPassword: false,
         email: false
     });
 
@@ -162,6 +164,40 @@ const Join = () => {
             ...userValue,
             password: e.target.value
         });
+
+    }
+
+    // 비밀번호 확인 입력값 검증
+    const checkPasswordHandler = e => {
+
+        // 검증 시작
+        let msg;
+        if(!e.target.value) {
+            setValidate({
+                ...validate,
+                checkPassword: false
+            });
+            msg = '비밀번호 확인은 필수입니다!🤬';
+        }else if(e.target.value !== userValue.password) {
+            setValidate({
+                ...validate,
+                checkPassword: false
+            });
+            msg = '비밀번호가 일치하지 않아요!🤬';
+        }else {
+            setValidate({
+                ...validate,
+                checkPassword: true
+            });
+            msg = '비밀번호가 일치합니다!';
+        }
+
+        setMessage({
+            ...message,
+            checkPassword: msg
+        });
+
+
     }
 
     // validate 객체 안의 모든 논리값이 true인지 검사하는 함수
@@ -270,6 +306,24 @@ const Join = () => {
                         ? {color: 'green'}
                         : {color: 'red'}
                     }>{message.password}</span>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        name="checkPassword"
+                        label="패스워드 확인"
+                        type="password"
+                        id="checkPassword"
+                        autoComplete="current-checkPassword"
+                        onChange={checkPasswordHandler}
+                    />
+                    <span style={
+                        validate.checkPassword 
+                        ? {color: 'green'}
+                        : {color: 'red'}
+                    }>{message.checkPassword}</span>
                 </Grid>
                 <Grid item xs={12}>
                     <Button type="submit" fullWidth variant="contained" color="primary">
