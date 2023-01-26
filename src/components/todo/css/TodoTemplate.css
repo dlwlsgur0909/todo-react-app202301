@@ -4,7 +4,7 @@
     height: 768px;
     border-radius: 16px;
     margin: 200px auto 100px;
-    
+
     /* 음영 처리 */
     /* x축, y축, 블러크기, 색상 */
     box-shadow: 0 0 8px #aaa;
@@ -14,3 +14,14 @@
     flex-direction: column;
 
 }
+
+/* 로딩중 style */
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+}
+
