@@ -34,7 +34,7 @@ const Header = () => {
                             {isLogin() 
                             ? `${getUsername()}님` 
                             : '오늘'}
-                            의 할일
+                            의 할 일
                         </Typography>
                         
                     </div>

@@ -20,7 +20,7 @@ const Login = () => {
         fetch(`${API_BASE_URL}/signin`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
             body: JSON.stringify({
                 email: $email.value,

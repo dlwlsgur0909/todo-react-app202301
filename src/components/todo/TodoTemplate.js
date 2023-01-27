@@ -10,9 +10,17 @@ import TodoHeader from './TodoHeader';
 import TodoInput from './TodoInput';
 import TodoMain from './TodoMain';
 
+import { getToken } from '../util/login-util';
+
 const TodoTemplate = (todo) => {
 
     const API_BASE_URL = BASE_URL+TODO;
+    const ACCESS_TOKEN = getToken();
+
+    const headerInfo = {
+        'content-type' : 'application/json',
+        'Authorization': 'Bearer ' + ACCESS_TOKEN
+    }
 
     // 할 일 API 데이터 호출
     const [todos, setTodos] = useState([]);
@@ -25,9 +33,7 @@ const TodoTemplate = (todo) => {
 
         fetch(API_BASE_URL, {
             method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
+            headers: headerInfo,
             body: JSON.stringify(todo)
         })
         .then(res => res.json())
@@ -41,6 +47,7 @@ const TodoTemplate = (todo) => {
         
         fetch(`${API_BASE_URL}/${id}`, {
             method: 'DELETE',
+            headers: headerInfo
         })
         .then(res => res.json())
         .then(result => {
@@ -52,9 +59,7 @@ const TodoTemplate = (todo) => {
     const modifyTodo = (updateTodo) => {
         fetch(`${API_BASE_URL}/${updateTodo.id}`, {
             method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
+            headers: headerInfo,
             body: JSON.stringify(updateTodo)
         })
         .then(res => res.json())
@@ -67,7 +72,10 @@ const TodoTemplate = (todo) => {
     // 렌더링 되자마자 할 일 => todo API 호출
     useEffect(() => {
     
-        fetch(API_BASE_URL)
+        fetch(API_BASE_URL, {
+            method: 'GET',
+            headers: headerInfo
+        })
         .then(res => {
             if(res.status === 403) {
                 alert('로그인이 필요한 서비스 입니다!');
