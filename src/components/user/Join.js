@@ -28,6 +28,7 @@ const Join = () => {
         userName: '',
         password: '',
         email: ''
+        // 비밀번호 확인 값 상태 값 저장 후 서버에 보낼때 property 삭제 가능         
     });
 
     // 유저 이름 입력란 검증 체인지 이벤트 핸들러
@@ -132,6 +133,14 @@ const Join = () => {
     // 비밀번호 입력란 검증 체인지 이벤트 핸들러
     const passwordHandler = e => {
 
+        // 비밀번호 확인란 비우기
+        document.querySelector('#checkPassword').value = '';
+        document.querySelector('#check-text').textContent = '';
+        setValidate({
+            ...validate,
+            checkPassword: false
+        })
+
         const pwRegex =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/;
 
          // 검증 시작
@@ -170,6 +179,7 @@ const Join = () => {
     // 비밀번호 확인 입력값 검증
     const checkPasswordHandler = e => {
 
+        
         // 검증 시작
         let msg;
         if(!e.target.value) {
@@ -197,7 +207,7 @@ const Join = () => {
             checkPassword: msg
         });
 
-
+  
     }
 
     // validate 객체 안의 모든 논리값이 true인지 검사하는 함수
@@ -232,6 +242,7 @@ const Join = () => {
                 if(res.status === 200) {
                     alert('회원가입을 축하합니다~');
                     // 로그인 페이지로 리다이렉트
+                    window.location.href = '/login';
                 }else {
                     alert('회원가입에 실패했습니다. 잠시 후 다시 시도해주세요😢');
                 }
@@ -319,7 +330,7 @@ const Join = () => {
                         autoComplete="current-checkPassword"
                         onChange={checkPasswordHandler}
                     />
-                    <span style={
+                    <span id='check-text' style={
                         validate.checkPassword 
                         ? {color: 'green'}
                         : {color: 'red'}

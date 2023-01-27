@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './router/AppRouter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    <BrowserRouter>
+      <AppRouter />
+      {/* <App />  */}
+    </BrowserRouter>
   // <React.StrictMode>
     // 컴포넌트 : HTML tag들의 집합 
-    <App /> 
   // </React.StrictMode>
 );
 
