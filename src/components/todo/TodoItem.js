@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdDone, MdDelete, MdOutlineDirectionsSubwayFilled } from 'react-icons/md';
+import { MdDone, MdDelete, MdUpdate, MdOutlineDirectionsSubwayFilled } from 'react-icons/md';
 import './css/TodoItem.css';
 import cn from 'classnames';
 
@@ -28,12 +28,20 @@ const TodoItem = ({todo, remove, modify}) => {
         modify(updateTodo);
     };
 
+    // 할 일 제목 수정 처리 이벤트 핸들러
+    const changeTitleHandler = e => {
+        
+    };
+
   return (
     <li className='todo-item'>
         <div className={cn('check-circle', {active: done})} onClick={doneCheckHandler}>
             { done && <MdDone /> }
         </div>
         <span className={cn('text', {finish: done})}>{title}</span>
+        <div className='edit-title' onClick={changeTitleHandler}>
+            {!done && <MdUpdate />}
+        </div>
         <div className="remove" onClick={deleteClickHandler}>
             <MdDelete />
         </div>

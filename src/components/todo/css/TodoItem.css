@@ -57,3 +57,23 @@
 .todo-item .remove:hover {
     color: #f51b4f;
 }
+
+.todo-item .edit-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+    color: #ccc;
+    cursor: pointer;
+    
+    display: none;
+}
+
+.todo-item:hover .edit-title {
+    display: block;
+}
+
+.todo-item:hover .edit-title:hover {
+    color: #07f863d5
+}
